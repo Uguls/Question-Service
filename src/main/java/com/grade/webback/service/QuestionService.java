@@ -1,6 +1,6 @@
 package com.grade.webback.service;
 
-import com.grade.webback.repository.Question;
+import com.grade.webback.entity.Question;
 import com.grade.webback.repository.QuestionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
