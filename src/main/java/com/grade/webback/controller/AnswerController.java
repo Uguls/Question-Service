@@ -18,7 +18,7 @@ public class AnswerController {
 
     @PostMapping("/create/{id}")
     public String createAnswer(Model model, @PathVariable("id") Integer id, @RequestParam String content) {
-        Question question = this.questionService.getQuestion(id); // 답변을 저장한다  s.
+        Question question = this.questionService.getQuestion(id); // 답변을 저장한다.
         return String.format("redirect:/question/detail/%s", id);
     }
 }
