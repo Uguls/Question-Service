@@ -1,6 +1,7 @@
 package com.grade.webback.controller;
 
 import com.grade.webback.entity.Question;
+import com.grade.webback.service.AnswerService;
 import com.grade.webback.service.QuestionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -15,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class AnswerController {
     private final QuestionService questionService;
+    private final AnswerService answerService;
 
     @PostMapping("/create/{id}")
     public String createAnswer(Model model, @PathVariable("id") Integer id, @RequestParam String content) {
         Question question = this.questionService.getQuestion(id); // 답변을 저장한다.
+        this.answerService.create(question, content);
         return String.format("redirect:/question/detail/%s", id);
     }
 }
