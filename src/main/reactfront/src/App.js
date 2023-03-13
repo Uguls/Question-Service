@@ -1,22 +1,24 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
-import FindID from "./component/login/findID";
-import Logins from "./component/login/login";
-import Register from "./component/login/register";
-import "bootstrap/dist/css/bootstrap.min.css";
+import './App.css';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import ListBoardComponent from './component/ListBoardComponent';
+import HeaderComponent from './component/HeaderComponent';
+import FooterComponent from './component/FooterComponent';
 
 function App() {
-  return (
-    <BrowserRouter>
-      <div className="mainArea">
-        <Routes>
-          <Route path="/login" element={<Logins />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/findid" element={<FindID />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
-  );
+    return (
+        <div>
+            <Router>
+                <HeaderComponent/>
+                <div className="container">
+                    <Routes>
+                        <Route path = "/" exact element = {ListBoardComponent}></Route>
+                        <Route path = "/board" element = {ListBoardComponent}></Route>
+                    </Routes>
+                </div>
+                <FooterComponent/>
+            </Router>
+        </div>
+    );
 }
 
 export default App;
